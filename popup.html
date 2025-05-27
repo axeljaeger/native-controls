@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    button {
+      anchor-name: --btn;
+      margin: 100px;
+    }
+
+    #popup {
+      position: absolute;
+      top: anchor(--btn bottom);
+      left: anchor(--btn left);
+      background: yellow;
+      padding: 1em;
+      border: 1px solid black;
+    }
+
+    #popup:open {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <button popovertarget="popup">Menü öffnen</button>
+  <div id="popup" popover="auto">
+    <p>Ich bin das Popup unter dem Button.</p>
+  </div>
+
+</body>
+</html>

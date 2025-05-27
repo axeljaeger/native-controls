@@ -1,0 +1,1 @@
+<button style="all: revert">Click</button>

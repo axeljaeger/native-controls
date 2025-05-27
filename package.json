@@ -1,0 +1,27 @@
+{
+  "name": "native-controls",
+  "version": "1.0.0",
+  "description": "Showcase for using native HTML elements for UIs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axeljaeger/native-controls.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/axeljaeger/native-controls/issues"
+  },
+  "homepage": "https://github.com/axeljaeger/native-controls#readme",
+  "devDependencies": {
+    "markdown-it-footnote": "^4.0.0",
+    "vitepress": "^1.6.3"
+  }
+}

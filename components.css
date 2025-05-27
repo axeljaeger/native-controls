@@ -1,0 +1,37 @@
+/* MARK: Button 
+*/
+/* #region button */
+.button {
+    background: royalblue;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+/* #endregion button */
+  
+  /* #region checkbox */
+  .checkbox {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid gray;
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+    margin-right: 0.5rem;
+  }
+  .checkbox:checked::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  /* #endregion checkbox */
+  

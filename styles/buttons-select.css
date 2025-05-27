@@ -1,0 +1,206 @@
+/* MARK: Styled  
+*/
+/* #region styled-button */
+.fancy-button {
+  padding: 0.3em 0.6em;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background-color: #3b82f6;
+  border: none;
+  border-radius: 0.5em;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.fancy-button:hover {
+  background-color: #2563eb;
+}
+
+.fancy-button:active {
+  transform: scale(0.97);
+}
+
+.fancy-button:focus-visible {
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+/* #endregion styled-button */
+
+/* MARK: Icon
+*/
+/* #region styled-button-icon */
+.with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.with-icon .material-icons {
+  font-size: 1.2em;
+}
+
+/* #endregion styled-button-icon */
+
+/* MARK: Roles
+*/
+/* #region role-buttons */
+.fancy-button.primary {
+  background-color: #3b82f6;
+}
+
+.fancy-button.primary:hover {
+  background-color: #2563eb;
+}
+
+.fancy-button.secondary {
+  background-color: #6b7280;
+}
+
+.fancy-button.secondary:hover {
+  background-color: #4b5563;
+}
+
+.fancy-button.danger {
+  background-color: #ef4444;
+}
+
+.fancy-button.danger:hover {
+  background-color: #dc2626;
+}
+
+/* #endregion role-buttons */
+
+
+/* MARK: Split
+/* #region split-button */
+.split-button {
+  display: inline-flex;
+  position: relative;
+}
+
+.split-button button {
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  padding: 0.5em 1em;
+  background: #3b82f6;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.split-button .main-action {
+  border-top-left-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+}
+
+.split-button .dropdown-toggle {
+  display: flex;
+  align-items: center;
+  border-top-right-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  padding: 0.5em;
+  anchor-name: --anchor_1;
+}
+
+.split-button button:hover {
+  background: #2563eb;
+}
+
+.dropdown-menu {
+  position: absolute;
+  position-anchor: --anchor_1;
+  top: anchor(bottom);
+  right: anchor(right); 
+  border: 1px solid #ccc;
+  border-radius: 0.4em;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: white;
+  z-index: 10;
+  left: auto;
+  bottom: auto;
+}
+
+.dropdown-menu button {
+  padding: 0.5em 1em;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.dropdown-menu button:hover {
+  background: #f3f4f6;
+}
+
+/* #endregion split-button */
+
+/* MARK: Tool-Button
+*/
+/* #region tool-button */
+
+.toolbar-button {
+  width: 2.5em;
+  height: 2.5em;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 0.4em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.toolbar-button:hover {
+  background-color: #e5e7eb;
+}
+
+.toolbar-button:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+.material-icons {
+  font-size: 1.4em;
+  color: #374151;
+}
+/* #endregion tool-button */
+
+
+/* MARK: Tool-Toggle
+*/
+/* #region toolbar-toggle */
+.toolbar-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.4em;
+  background: transparent;
+  padding: 0.4em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.toolbar-toggle:hover {
+  background-color: #e5e7eb;
+}
+
+.toolbar-toggle input {
+  appearance: none;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.toolbar-toggle input:checked+.material-icons {
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 0.3em;
+}
+
+/* #endregion toolbar-toggle */
