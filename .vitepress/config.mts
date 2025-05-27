@@ -4,6 +4,7 @@ import footnote from 'markdown-it-footnote'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: '/native-controls/',
   title: "Native Controls",
   description: "Showcase of Native HTML Controls",
   appearance: 'force-auto', // oder 'force-dark', 'dark', false
