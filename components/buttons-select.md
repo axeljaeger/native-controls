@@ -31,7 +31,7 @@ Buttons can have predefined actions for forms.
 ### Button with icon
 You can put arbitrary HTML elements inside the button, such das icons. Make sure to adjust the spacing, for example using flex-box.
 
-Here, an icon from an icon font is used, see [Icons](./icons).
+Here, an icon from an icon font is used, see [Icons](../guides/icons).
 
 <!--@include: @/components/buttons/button-styled-icon.md-->
 
@@ -160,8 +160,6 @@ Choose multiple options from a list:
 
 ## Related Topics
 
-- [Form Structure](./form)
-- [Navigation & Focus](./navigation)
 - [Icons](../guides/icons) – for visual enhancement of controls
 
 ## References
