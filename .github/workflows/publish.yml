@@ -3,7 +3,11 @@ name: Deploy VitePress to GitHub Pages
 on:
   push:
     branches:
-      - main  # oder dein Default-Branch
+      - main
+
+permissions:
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
