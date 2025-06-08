@@ -1,5 +1,4 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-<link href="../styles/buttons-select.css" rel="stylesheet">
 
 # Buttons & Selection
 
