@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkbox Animation Varianten</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      display: grid;
+      gap: 2rem;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td {
+      padding: 1rem;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .checkbox-container {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      perspective: 600px;
+      display: inline-block;
+      overflow: visible;
+    }
+
+    .checkbox-container input[type="checkbox"] {
+      display: none;
+    }
+
+    .icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      backface-visibility: hidden;
+    }
+
+    /* Original Fly Up/Down */
+    .flyup .unchecked {
+      opacity: 1;
+      transform: translateY(0);
+      transition: transform 0.4s, opacity 0.4s;
+    }
+    .flyup .checked {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: transform 0.4s, opacity 0.4s;
+    }
+    .flyup input:checked ~ .unchecked {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    .flyup input:checked ~ .checked {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stack Style (immer nach oben) */
+    .stack .unchecked,
+    .stack .checked {
+      transition: transform 0.4s, opacity 0.4s;
+      position: absolute;
+    }
+    .stack .unchecked {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .stack .checked {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .stack input:checked ~ .unchecked {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    .stack input:checked ~ .checked {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .stack input:not(:checked) ~ .checked {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    /* Cube Flip (90° Würfelseite) */
+    .cube {
+      transform-style: preserve-3d;
+    }
+    .cube .unchecked,
+    .cube .checked {
+      transition: transform 0.6s;
+      backface-visibility: hidden;
+      transform-origin: center;
+    }
+    .cube .unchecked {
+      transform: rotateY(0deg);
+      z-index: 2;
+    }
+    .cube .checked {
+      transform: rotateY(90deg);
+    }
+    .cube input:checked ~ .unchecked {
+      transform: rotateY(-90deg);
+      z-index: 1;
+    }
+    .cube input:checked ~ .checked {
+      transform: rotateY(0deg);
+      z-index: 2;
+    }
+
+    /* Spiral Scale */
+    .spiral .unchecked, .spiral .checked {
+      transition: transform 0.5s, opacity 0.5s;
+    }
+    .spiral .unchecked {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+    .spiral .checked {
+      transform: scale(0.5) rotate(-180deg);
+      opacity: 0;
+    }
+    .spiral input:checked ~ .unchecked {
+      transform: scale(0.5) rotate(180deg);
+      opacity: 0;
+    }
+    .spiral input:checked ~ .checked {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+
+    /* 90 Degree Rotate */
+    .rotate90 .unchecked, .rotate90 .checked {
+      transition: transform 0.4s, opacity 0.4s;
+    }
+    .rotate90 .unchecked {
+      transform: rotate(0deg);
+      opacity: 1;
+    }
+    .rotate90 .checked {
+      transform: rotate(-90deg);
+      opacity: 0;
+    }
+    .rotate90 input:checked ~ .unchecked {
+      transform: rotate(90deg);
+      opacity: 0;
+    }
+    .rotate90 input:checked ~ .checked {
+      transform: rotate(0deg);
+      opacity: 1;
+    }
+
+    /* Coin Flip */
+    .coin .unchecked, .coin .checked {
+      transition: transform 0.5s;
+      transform-style: preserve-3d;
+    }
+    .coin .unchecked {
+      transform: rotateY(0deg);
+    }
+    .coin .checked {
+      transform: rotateY(180deg);
+    }
+    .coin input:checked ~ .unchecked {
+      transform: rotateY(180deg);
+    }
+    .coin input:checked ~ .checked {
+      transform: rotateY(0deg);
+    }
+
+    /* Fade Zoom */
+    .zoom .unchecked, .zoom .checked {
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .zoom .unchecked {
+      transform: scale(1);
+      opacity: 1;
+    }
+    .zoom .checked {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    .zoom input:checked ~ .unchecked {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    .zoom input:checked ~ .checked {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    /* Slide */
+    .slide .unchecked, .slide .checked {
+      transition: transform 0.4s, opacity 0.4s;
+    }
+    .slide .unchecked {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    .slide .checked {
+      transform: translateX(-20px);
+      opacity: 0;
+    }
+    .slide input:checked ~ .unchecked {
+      transform: translateX(20px);
+      opacity: 0;
+    }
+    .slide input:checked ~ .checked {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+<table border="1">
+  <tr>
+    <td>Original (Fly Up/Down)</td>
+    <td>
+      <label class="checkbox-container flyup">
+        <input type="checkbox">
+        <div class="icon unchecked">🔲</div>
+        <div class="icon checked">✅</div>
+      </label>
+    </td>
+  </tr>
+  <tr>
+    <td>Nur Aufwärts (Stack)</td>
+    <td>
+      <label class="checkbox-container stack">
+        <input type="checkbox">
+        <div class="icon unchecked">⭕</div>
+        <div class="icon checked">✔️</div>
+      </label>
+    </td>
+  </tr>
+  <tr>
+    <td>Würfelrotation</td>
+    <td>
+      <label class="checkbox-container cube">
+        <input type="checkbox">
+        <div class="icon unchecked">◻️</div>
+        <div class="icon checked">🟩</div>
+      </label>
+    </td>
+  </tr>
+  <tr>
+    <td>Strudel</td>
+    <td>
+      <label class="checkbox-container spiral">
+        <input type="checkbox">
+        <div class="icon unchecked">🔘</div>
+        <div class="icon checked">🌀</div>
+      </label>
+    </td>
+  </tr>
+  <tr>
+    <td>90° Rotation</td>
+    <td>
+      <label class="checkbox-container rotate90">
+        <input type="checkbox">
+        <div class="icon unchecked">📦</div>
+        <div class="icon checked">📬</div>
+      </label>
+    </td>
+  </tr>
+  <tr>
+    <td>Coin Flip</td>
+    <td>
+      <label class="checkbox-container coin">
+        <input type="checkbox">
+        <div class="icon unchecked">🪙</div>
+        <div class="icon checked">💰</div>
+      </label>
+    </td>
+  </tr>
+  <tr>
+    <td>Fade Zoom</td>
+    <td>
+      <label class="checkbox-container zoom">
+        <input type="checkbox">
+        <div class="icon unchecked">🟦</div>
+        <div class="icon checked">🟨</div>
+      </label>
+    </td>
+  </tr>
+  <tr>
+    <td>Slide-In/Out</td>
+    <td>
+      <label class="checkbox-container slide">
+        <input type="checkbox">
+        <div class="icon unchecked">⬅️</div>
+        <div class="icon checked">➡️</div>
+      </label>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
