@@ -12,65 +12,51 @@
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   transition: background-color 0.2s ease, transform 0.1s ease;
-}
 
-.fancy-button:hover {
-  background-color: #2563eb;
-}
+  &:hover {
+    background-color: #2563eb;
+  }
+  
+  &:active {
+    transform: scale(0.97);
+  }
 
-.fancy-button:active {
-  transform: scale(0.97);
+  &:focus-visible {
+    outline: 2px solid #93c5fd;
+    outline-offset: 2px;
+  }
 }
-
-.fancy-button:focus-visible {
-  outline: 2px solid #93c5fd;
-  outline-offset: 2px;
-}
-
 /* #endregion styled-button */
 
-/* MARK: Icon
-*/
+/* MARK: Icon */
 /* #region styled-button-icon */
 .with-icon {
   display: inline-flex;
   align-items: center;
   gap: 0.5em;
 }
-
-.with-icon .material-icons {
-  font-size: 1.2em;
-}
-
 /* #endregion styled-button-icon */
 
 /* MARK: Roles
 */
 /* #region role-buttons */
-.fancy-button.primary {
-  background-color: #3b82f6;
-}
+.fancy-button {
+  &.secondary {
+    background-color: #6b7280;
+  }
 
-.fancy-button.primary:hover {
-  background-color: #2563eb;
-}
+  &.secondary:hover {
+    background-color: #4b5563;
+  }
 
-.fancy-button.secondary {
-  background-color: #6b7280;
-}
+  &.danger {
+    background-color: #ef4444;
+  }
 
-.fancy-button.secondary:hover {
-  background-color: #4b5563;
+  &.danger:hover {
+    background-color: #dc2626;
+  }
 }
-
-.fancy-button.danger {
-  background-color: #ef4444;
-}
-
-.fancy-button.danger:hover {
-  background-color: #dc2626;
-}
-
 /* #endregion role-buttons */
 
 
@@ -78,63 +64,66 @@
 /* #region split-button */
 .split-button {
   display: inline-flex;
-  position: relative;
+
+  button {
+    border: none;
+    padding: 0.5em 1em;
+    background: #3b82f6;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  
+    &:hover {
+      background: #2563eb;
+    }
+  
+    &:first-child {
+      border-radius: 0.5em 0 0 0.5em;
+      padding-right: 0.5em;
+    }
+  
+    &:last-child {
+      border-radius: 0 0.5em 0.5em 0;
+      padding-left: 0.5em;
+      display: grid;
+      place-items: center;
+      anchor-name: --anchor_1;
+    }
+  }
 }
 
-.split-button button {
-  font-size: 1rem;
-  font-weight: 500;
-  border: none;
-  padding: 0.5em 1em;
-  background: #3b82f6;
-  color: white;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.split-button .main-action {
-  border-top-left-radius: 0.5em;
-  border-bottom-left-radius: 0.5em;
-}
-
-.split-button .dropdown-toggle {
-  display: flex;
-  align-items: center;
-  border-top-right-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
-  padding: 0.5em;
-  anchor-name: --anchor_1;
-}
-
-.split-button button:hover {
-  background: #2563eb;
-}
-
-.dropdown-menu {
-  position: absolute;
+ul.dropdown-menu {
   position-anchor: --anchor_1;
   top: anchor(bottom);
-  right: anchor(right); 
-  border: 1px solid #ccc;
-  border-radius: 0.4em;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  background: white;
-  z-index: 10;
+  right: anchor(right);
   left: auto;
   bottom: auto;
-}
 
-.dropdown-menu button {
-  padding: 0.5em 1em;
-  text-align: left;
-  background: none;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
+  min-width: 12rem;
+  margin-top: .25rem;
+  padding: .25rem;
+  
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: .5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
-.dropdown-menu button:hover {
-  background: #f3f4f6;
+  li {
+    margin: 0;
+    padding: 0;
+
+    button {
+      width: 100%;
+      text-align: left;
+      padding: .5rem;
+      border-radius: .4rem;
+
+      &:hover,
+      &:focus-visible {
+        background: #f3f4f6;
+      }
+    }
+  }
 }
 
 /* #endregion split-button */
@@ -167,7 +156,6 @@
 
 .material-icons {
   font-size: 1.4em;
-  color: #374151;
 }
 /* #endregion tool-button */
 
