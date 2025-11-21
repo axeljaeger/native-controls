@@ -5,25 +5,25 @@
 ## Buttons
 Elements that trigger an immediate action. Styles are reset to the browser's default style.
 
-<!--@include: @/components/buttons/button-simple.md-->
+<!--@include: @/components/buttons-select/button-simple.md-->
 ::: code-group
-<<< @/components/buttons/button-simple.md{html}[HTML]
+<<< @/components/buttons-select/button-simple.md{html}[HTML]
 :::
 
 ### Predefines roles
 Buttons can have predefined actions for forms.
 
-<!--@include: @/components/buttons/button-roles.md-->
+<!--@include: @/components/buttons-select/button-roles.md-->
 ::: code-group
-<<< @/components/buttons/button-roles.md{html}[HTML]
+<<< @/components/buttons-select/button-roles.md{html}[HTML]
 <<< @/styles/buttons-select.css#styled-button[CSS]
 :::
 
 ### Styling buttons
 
-<!--@include: @/components/buttons/button-styled.md-->
+<!--@include: @/components/buttons-select/button-styled.md-->
 ::: code-group
-<<< @/components/buttons/button-styled.md{html}[HTML]
+<<< @/components/buttons-select/button-styled.md{html}[HTML]
 <<< @/styles/buttons-select.css#styled-button[CSS]
 :::
 
@@ -32,27 +32,30 @@ You can put arbitrary HTML elements inside the button, such das icons. Make sure
 
 Here, an icon from an icon font is used, see [Icons](../guides/icons).
 
-<!--@include: @/components/buttons/button-styled-icon.md-->
+<!--@include: @/components/buttons-select/button-styled-icon.md-->
 
 ::: code-group
-<<< @/components/buttons/button-styled-icon.md{html}[HTML]
+<<< @/components/buttons-select/button-styled-icon.md{html}[HTML]
 <<< @/styles/buttons-select.css#styled-button-icon[CSS]
 :::
 
 ### Different visual roles
 
-<!--@include: @/components/buttons/button-styled-visual-roles.md-->
+<!--@include: @/components/buttons-select/button-styled-visual-roles.md-->
 
 ::: code-group
-<<< @/components/buttons/button-styled-visual-roles.md{html}[HTML]
-<<< @/styles/buttons-select.css#styled-button-icon[CSS]
+<<< @/components/buttons-select/button-styled-visual-roles.md{html}[HTML]
+<<< @/styles/buttons-select.css#role-buttons[CSS]
 :::
 
 ### Split button with menu
-<!--@include: @/components/buttons/button-styled-split.md-->
+A split button with menu can be implemented using two buttons styled in a way
+so that they form one visual entity.
+
+<!--@include: @/components/buttons-select/button-styled-split.md-->
 
 ::: code-group
-<<< @/components/buttons/button-styled-split.md{html}[HTML]
+<<< @/components/buttons-select/button-styled-split.md{html}[HTML]
 <<< @/styles/buttons-select.css#split-button[CSS]
 :::
 
@@ -61,10 +64,10 @@ Here, an icon from an icon font is used, see [Icons](../guides/icons).
 
 
 ### Toolbar button
-<!--@include: @/components/buttons/button-toolbutton.md-->
+<!--@include: @/components/buttons-select/button-toolbutton.md-->
 
 ::: code-group
-<<< @/components/buttons/button-toolbutton.md{html}[HTML]
+<<< @/components/buttons-select/button-toolbutton.md{html}[HTML]
 <<< @/styles/buttons-select.css#tool-button[CSS]
 :::
 
