@@ -21,4 +21,4 @@ jobs:
         run: npm ci
 
       - name: Build VitePress Site
-        run: npm run check-links
+        run: npm run check
