@@ -92,7 +92,7 @@
   }
 }
 
-ul.dropdown-menu {
+ul[role="menu"] {
   position-anchor: --anchor_1;
   top: anchor(bottom);
   right: anchor(right);
